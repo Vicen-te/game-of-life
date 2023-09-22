@@ -27,38 +27,38 @@ public:
 	/**
 	 * @brief View of our controller
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board")
 		ACameraActor* CameraActor;
 	
 	/**
 	 * @brief Automaton board width
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board")
 		int Width = 50;
 
 	/**
 	 * @brief Automaton board height
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board")
 		int Height = 50;
 
 	/**
 	 * @brief Time between iterations
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board")
 		float InRate = 0.1f;
 	
 	/**
-	 * @brief Color of an empty cell
+	 * @brief Color of a dead cell
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
-		FLinearColor EmptyCell = FLinearColor::White;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board")
+		FLinearColor DeadCell = FLinearColor::White;
 
 	/**
-	 * @brief Color of a living cell
+	 * @brief Color of a live cell
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
-		FLinearColor LivingCell = FLinearColor::Black;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board")
+		FLinearColor LiveCell = FLinearColor::Black;
 
 
 	/**
@@ -80,7 +80,7 @@ public:
 		UInputAction* Clear;
 
 	/**
-	 * @brief Creates new living or empty cells
+	 * @brief Creates new live or dead cells
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Enhanced Input")
 		UInputAction* Click;
@@ -99,7 +99,7 @@ private:
 	/**
 	 * @brief Represents the states of the cells.\n
 	 * Automaton only stores 1 or 0, which represents the state of the cell:\n
-	 * 1: Living cell, 0: Empty cell
+	 * 1: Live cell, 0: Dead cell
 	 */
 	TArray<int> Automaton;
 

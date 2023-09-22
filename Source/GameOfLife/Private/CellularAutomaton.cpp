@@ -128,13 +128,13 @@ void ACellularAutomaton::CreateDestroyLiveCell()
 			/// Check Automaton value and change its values
 			if(Automaton[Position] == 1)
 			{
-				Cell->ChangeColor(EmptyCell);
+				Cell->ChangeColor(DeadCell);
 				Automaton[Position] = 0;
 				--Population;
 			}
 			else
 			{
-				Cell->ChangeColor(LivingCell);
+				Cell->ChangeColor(LiveCell);
 				Automaton[Position] = 1;
 				++Population;
 			}
@@ -197,10 +197,10 @@ void ACellularAutomaton::SetAutomatonState()
 		if (Automaton[i] == 1)
 		{
 			++Population;
-			CellList[i]->ChangeColor(LivingCell);
+			CellList[i]->ChangeColor(LiveCell);
 		}
 		else
-			CellList[i]->ChangeColor(EmptyCell);
+			CellList[i]->ChangeColor(DeadCell);
 	}
 }
 
@@ -217,7 +217,7 @@ void ACellularAutomaton::AutomatonRules()
 			if (NeighbourCellTiles == 3)
 				NextAutomaton[(y * Width) + x] = 1;
 
-			/// Still living
+			/// Still alive
 			else if(NeighbourCellTiles == 2 && Automaton[(y * Width) + x] == 1)
 				NextAutomaton[(y * Width) + x] = 1;
 
